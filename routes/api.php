@@ -28,6 +28,8 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     // Category
      Route::post('store-category', [CategoryController::class, 'store']);
      Route::get('view-category', [CategoryController::class, 'index']);
+     Route::get('edit-category/{id}', [CategoryController::class, 'edit']);
+     Route::post('update-category/{id}', [CategoryController::class, 'update']);
 
 });
 

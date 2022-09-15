@@ -41,7 +41,7 @@ class CategoryController extends Controller
             $category = new Category();
 
             $data = $request->all();
-            $data['status'] = $request->status == 'on' ? '1':'0';
+            $data['status'] = $request->status == 'on' ? '1' : '0';
 
             $category->create($data);
 
@@ -49,6 +49,61 @@ class CategoryController extends Controller
                 'status' => 200,
                 'message' => 'Category Added Successfully.'
             ]);
+        }
+    }
+
+    public function edit($id)
+    {
+        $category = Category::find($id);
+
+        if ($category) {
+            return response()->json([
+                'status' => 200,
+                'category' => $category
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'error' => 'No Category Found'
+            ]);
+        }
+    }
+    public function update(Request $request, $id)
+    {
+
+        $validator  = Validator::make($request->all(), [
+            'meta_title' => 'required',
+            'meta_keyword' => 'required',
+            'meta_description' => 'required',
+            'slug' => 'required',
+            'name' => 'required',
+            'description' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 422,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $category = Category::find($id);
+            if ($category) {
+
+                $data = $request->all();
+                $data['status'] = $request->status == 'on' || $request->status === 1 ? '1' : '0';
+
+                $category->update($data);
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Category Updated Successfully',
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'No Category ID Found',
+                ]);
+            }
         }
     }
 }
