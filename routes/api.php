@@ -3,7 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CartController;
+use App\Http\Controllers\API\OrderController;
+use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\CheckoutController;
+use App\Http\Controllers\API\FrontendController;
 
 
 //
@@ -47,16 +52,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
 
-
-
 //
 // =========== All Frontend Route Starts Form Here ============
 //
 
-
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
-
 
 Route::get('getCategory', [FrontendController::class, 'category']);
 Route::get('fetchproducts/{slug}', [FrontendController::class, 'product']);
@@ -65,11 +66,10 @@ Route::get('viewproductdetail/{category_slug}/{product_slug}', [FrontendControll
 Route::post('add-to-cart', [CartController::class, 'addtocart']);
 Route::get('cart', [CartController::class, 'viewcart']);
 Route::put('cart-updatequantity/{cart_id}/{scope}', [CartController::class, 'updatequantity']);
-Route::delete('delete-cartitem/{cart_id}', [CartController::class, 'deleteCartitem']);
+Route::post('delete-cartitem/{cart_id}', [CartController::class, 'deleteCartitem']);
 
 Route::post('validate-order', [CheckoutController::class, 'validateOrder']);
 Route::post('place-order', [CheckoutController::class, 'placeorder']);
-
 
 //
 // =========== All Frontend Route Ends Form Here ============
