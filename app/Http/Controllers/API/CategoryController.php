@@ -41,7 +41,7 @@ class CategoryController extends Controller
             $category = new Category();
 
             $data = $request->all();
-            $data['status'] = $request->status == 'on' ? '1' : '0';
+            $data['status'] = (int)$request->status;
 
             $category->create($data);
 
@@ -90,7 +90,7 @@ class CategoryController extends Controller
             if ($category) {
 
                 $data = $request->all();
-                $data['status'] = $request->status == 'on' || $request->status === 1 ? '1' : '0';
+                $data['status'] = (int)$request->status;
 
                 $category->update($data);
 
