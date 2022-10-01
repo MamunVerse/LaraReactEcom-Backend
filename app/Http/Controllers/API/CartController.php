@@ -81,6 +81,7 @@ class CartController extends Controller
 
     public function updatequantity($cart_id, $scope)
     {
+
         if(auth('sanctum')->check())
         {
             $user_id = auth('sanctum')->user()->id;
@@ -107,6 +108,8 @@ class CartController extends Controller
 
     public function deleteCartitem($cart_id)
     {
+
+
         if(auth('sanctum')->check())
         {
             $user_id = auth('sanctum')->user()->id;
@@ -119,6 +122,7 @@ class CartController extends Controller
                     'message'=> 'Cart Item Removed Successfully.',
                 ]);
             }
+            
             else
             {
                 return response()->json([

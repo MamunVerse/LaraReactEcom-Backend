@@ -65,7 +65,7 @@ Route::get('viewproductdetail/{category_slug}/{product_slug}', [FrontendControll
 
 Route::post('add-to-cart', [CartController::class, 'addtocart']);
 Route::get('cart', [CartController::class, 'viewcart']);
-Route::put('cart-updatequantity/{cart_id}/{scope}', [CartController::class, 'updatequantity']);
+Route::post('cart-updatequantity/{cart_id}/{scope}', [CartController::class, 'updatequantity']);
 Route::post('delete-cartitem/{cart_id}', [CartController::class, 'deleteCartitem']);
 
 Route::post('validate-order', [CheckoutController::class, 'validateOrder']);
