@@ -59,13 +59,11 @@ class FrontendController extends Controller
 
     public function viewproduct($category_slug, $product_slug)
     {
-        $category = Category::where('slug',$category_slug)->where('status','0')->first();
+        $category = Category::where('slug',$category_slug)->first();
+
         if($category)
         {
-            $product = Product::where('category_id', $category->id)
-                                ->where('slug',$product_slug)
-                                ->where('status','0')
-                                ->first();
+            $product = Product::where('category_id', $category->id)->where('slug', $product_slug)->first();
             if($product)
             {
                 return response()->json([
