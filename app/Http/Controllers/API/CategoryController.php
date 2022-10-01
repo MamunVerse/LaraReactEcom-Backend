@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Validator;
 class CategoryController extends Controller
 {
 
-
-
     public function allcategory()
     {
         $category = Category::where('status','1')->get();
@@ -30,6 +28,7 @@ class CategoryController extends Controller
             'category' => $category,
         ]);
     }
+
     public function store(Request $request)
     {
 
@@ -79,6 +78,7 @@ class CategoryController extends Controller
             ]);
         }
     }
+    
     public function update(Request $request, $id)
     {
 
