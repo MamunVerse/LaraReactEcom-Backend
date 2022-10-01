@@ -21,10 +21,14 @@ class FrontendController extends Controller
 
     public function product($slug)
     {
-        $category = Category::where('slug', $slug)->where('status','1')->first();
+
+        $category = Category::where('slug', $slug)->first();
+
+
         if($category)
         {
             $product = Product::where('category_id', $category->id)->where('status','1')->get();
+
             if($product)
             {
                 return response()->json([
