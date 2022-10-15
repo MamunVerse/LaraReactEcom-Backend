@@ -15,6 +15,7 @@ use App\Http\Controllers\API\FrontendController;
 // =========== All Admin Dashboard Route Starts Form Here ============
 //
 
+
 Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 
     Route::get('/checkingAuthenticated', function(){
@@ -49,8 +50,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 //
 // =========== All Admin Dashboard Route Ends Form Here ============
 //
-
-
 
 //
 // =========== All Frontend Route Starts Form Here ============

@@ -75,7 +75,7 @@ class ProductController extends Controller
 
             return response()->json([
                 'status'=>200,
-                'message'=>'Product Added Successfully',
+                'message'=>'Product Successfully Added',
             ]);
         }
     }
@@ -94,7 +94,7 @@ class ProductController extends Controller
         {
             return response()->json([
                 'status'=>404,
-                'message'=>'No Product Found',
+                'message'=>'Product Not Found',
             ]);
         }
     }

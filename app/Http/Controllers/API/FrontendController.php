@@ -43,7 +43,7 @@ class FrontendController extends Controller
             {
                 return response()->json([
                     'status'=>400,
-                    'message'=>'No Product Available'
+                    'message'=>'Product Not Available'
                 ]);
             }
         }
@@ -51,7 +51,7 @@ class FrontendController extends Controller
         {
             return response()->json([
                 'status'=>404,
-                'message'=>'No Such Category Found'
+                'message'=>'Category Not Found'
             ]);
         }
     }
@@ -75,7 +75,7 @@ class FrontendController extends Controller
             {
                 return response()->json([
                     'status'=>400,
-                    'message'=>'No Product Available'
+                    'message'=>'Product Not Available'
                 ]);
             }
         }
@@ -83,7 +83,7 @@ class FrontendController extends Controller
         {
             return response()->json([
                 'status'=>404,
-                'message'=>'No Such Category Found'
+                'message'=>'Category Not Found'
             ]);
         }
     }

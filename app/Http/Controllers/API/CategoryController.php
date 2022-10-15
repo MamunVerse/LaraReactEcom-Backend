@@ -74,11 +74,11 @@ class CategoryController extends Controller
         } else {
             return response()->json([
                 'status' => 404,
-                'error' => 'No Category Found'
+                'error' => 'Category Not Found'
             ]);
         }
     }
-    
+
     public function update(Request $request, $id)
     {
 
@@ -112,7 +112,7 @@ class CategoryController extends Controller
             } else {
                 return response()->json([
                     'status' => 404,
-                    'message' => 'No Category ID Found',
+                    'message' => 'Category Not ID Found',
                 ]);
             }
         }
@@ -131,7 +131,7 @@ class CategoryController extends Controller
         } else {
             return response()->json([
                 'status' => 404,
-                'error' => 'No Category Found'
+                'error' => 'Category Not Found'
             ]);
         }
     }
